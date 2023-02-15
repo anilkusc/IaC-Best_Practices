@@ -1,0 +1,1 @@
+Here you can find how to write infrastructure modules with managing dependencies.
