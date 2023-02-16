@@ -1,0 +1,1 @@
+Inversion of control is the principle by which the high-level resource calls the low-level one for attributes or references.
