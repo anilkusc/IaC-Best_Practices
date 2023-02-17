@@ -1,0 +1,1 @@
+The facade pattern outputs attributes from resources in a module for dependency injection
