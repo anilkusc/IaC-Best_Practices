@@ -1,0 +1,10 @@
+employes:
+  viewers:
+    - data-team
+    - user-01
+  editors:
+    - developer-team
+    - user-02
+    - automation-01
+  admins:
+    - infra-team
