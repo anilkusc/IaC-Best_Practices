@@ -6,6 +6,7 @@ class AWS_EC2_Factory:
                  ami="ami-065793e81b1869261",
                  instance_type="t2.micro",
                  monitoring = False,
+                 public_ip = False,
                  tags={},
                  ):
         self.name = name
@@ -14,6 +15,7 @@ class AWS_EC2_Factory:
         self.monitoring = monitoring
         self.subnet_name = subnet_name
         self.sg_ids = self.create_securiy_group_ids(sg_names)
+        self.public_ip = public_ip
         self.tags = tags
         self.resource = self._build()
 
@@ -33,7 +35,7 @@ class AWS_EC2_Factory:
                         "ami": self.ami,
                         "instance_type": self.instance_type,
                         "monitoring": self.monitoring,
-                        #"name": self.name,
+                        "associate_public_ip_address": self.public_ip,
                         "subnet_id": f'${{aws_subnet.{self.subnet_name}.id}}',
                         "tags": self.tags,
                         "vpc_security_group_ids": self.sg_ids

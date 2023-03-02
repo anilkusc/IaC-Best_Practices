@@ -13,6 +13,6 @@ tags = {
         "squad":"",
         }
 
-ec2_module = EC2Module('test-ec2-server',tags=tags)
+ec2_module = EC2Module('test-ec2-server',tags=tags,public=True)
 with open('main.tf.json', 'w') as outfile:
     json.dump(ec2_module.build(), outfile,sort_keys=True, indent=4)

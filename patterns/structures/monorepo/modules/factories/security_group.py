@@ -24,11 +24,11 @@ class AWS_SG_Factory:
         self.resource = self._build()
 
     def add_ingress_rule(self,cidr_blocks,to_port,from_port=0,protocol="-1",description=""):
-        self.ingress.append(SG_Rule_Prototype().resource)
+        self.ingress.append(SG_Rule_Prototype(cidr_blocks=cidr_blocks,to_port=to_port,from_port=from_port,protocol=protocol,description=description).resource)
         self.resource = self._build()
     
     def add_egress_rule(self,cidr_blocks,to_port,from_port=0,protocol="-1",description=""):
-        self.egress.append(SG_Rule_Prototype())
+        self.egress.append(SG_Rule_Prototype(cidr_blocks=cidr_blocks,to_port=to_port,from_port=from_port,protocol=protocol,description=description))
         self.resource = self._build()
 
 
