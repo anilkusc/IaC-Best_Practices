@@ -13,6 +13,6 @@ tags = {
         "squad":"test-squad"
         }
 
-server = ServerBuilder(name='test-ec2-server',tags=tags)
+server = ServerBuilder(name='checkout',tags=tags)
 with open('main.tf.json', 'w') as outfile:
     json.dump(server.build(), outfile,sort_keys=True, indent=4)

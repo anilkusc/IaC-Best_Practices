@@ -25,3 +25,5 @@ class AWS_VPC_Factory:
                     }
                     ]
                 }
+    def outputs(self):
+        return self
