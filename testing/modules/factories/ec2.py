@@ -1,16 +1,16 @@
 class AWS_EC2_Factory:
-    def __init__(self,name,subnet_id,monitoring,instance_type,ami,tags):
+    def __init__(self,name,subnet_id,monitoring,instance_type,ami,sg_ids,tags):
         self.name = name
         self.subnet_id = subnet_id
         self.monitoring = monitoring
-        #self.sg_ids = sg_ids
+        self.sg_ids = sg_ids
         self.instance_type = instance_type
         self.ami = ami
         self.tags = tags
         self.resource = self._build()
     def _build(self):
         return {
-                "ec2_instance": [
+                self.name: [
                   {
                     "ami": self.ami,
                     "instance_type": self.instance_type,
@@ -19,7 +19,7 @@ class AWS_EC2_Factory:
                     "name": self.name,
                     "subnet_id": self.subnet_id,
                     #"version": "~\u003e 3.0",
-                    #"vpc_security_group_ids": self.sg_ids,
+                    "vpc_security_group_ids": self.sg_ids,
                     "tags":self.tags,
                     "source": "terraform-aws-modules/ec2-instance/aws"
                   }

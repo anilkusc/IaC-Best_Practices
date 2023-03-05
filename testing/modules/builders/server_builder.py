@@ -18,11 +18,13 @@ class ServerBuilder:
                  monitoring = False,
                  ami = "ami-065793e81b1869261",
                  instance_type="t2.micro",
+                 sg_ids=[]
                   ):
         self._resources = []
         self.name=name
         self.cidr=cidr
         self.azs=azs
+        self.sg_ids=sg_ids
         self.monitoring=monitoring
         self.private_subnets=private_subnets
         self.public_subnets=public_subnets
@@ -48,6 +50,7 @@ class ServerBuilder:
                               subnet_id = self.subnet_id,
                               instance_type = self.instance_type,
                               ami = self.ami,
+                              sg_ids = self.sg_ids,
                               tags=tags.resource)
         self._resources.append(ec2.resource)
         
